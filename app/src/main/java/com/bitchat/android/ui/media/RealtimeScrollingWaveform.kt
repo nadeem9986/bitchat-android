@@ -1,5 +1,7 @@
 package com.bitchat.android.ui.media
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -25,7 +27,7 @@ fun RealtimeScrollingWaveform(
     modifier: Modifier = Modifier,
     amplitudeNorm: Float,
     bars: Int = 240,
-    barColor: Color = Color(0xFF00FF7F),
+    barColor: Color = MonochromeStatusInk,
     baseColor: Color = Color(0xFF444444)
 ) {
     val latestAmp by rememberUpdatedState(amplitudeNorm)
@@ -76,4 +78,3 @@ fun RealtimeScrollingWaveform(
         }
     }
 }
-
