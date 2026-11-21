@@ -1,5 +1,7 @@
 package com.bitchat.android.ui.media
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.animation.core.LinearEasing
@@ -82,7 +84,7 @@ fun FileSendingAnimation(
         Icon(
             imageVector = Icons.Filled.Description,
             contentDescription = stringResource(R.string.cd_file),
-            tint = Color(0xFF00C851), // Green like app theme
+            tint = MonochromeStatusInk, // Green like app theme
             modifier = Modifier.size(32.dp)
         )
 
@@ -151,7 +153,7 @@ private fun FileProgressBars(
         text = progressString,
         style = MaterialTheme.typography.bodySmall.copy(
             fontFamily = BitchatFontFamily,
-            color = Color(0xFF00FF7F) // Matrix green
+            color = MonochromeStatusInk // Matrix green
         ),
         modifier = modifier
     )
