@@ -3,7 +3,6 @@ package com.bitchat.android.ui.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import com.bitchat.android.ui.PeerIdentity
-import kotlin.math.abs
 
 /**
  * Theme-specific chroma applied after a peer's stable hue is derived.
@@ -34,8 +33,7 @@ data class PeerColorStyle(
 /**
  * The single identity-to-color boundary used by chat, people sheets, and mentions.
  *
- * The djb2 hash and hue adjustment are byte-identical to the iOS implementation. Orange is
- * avoided because it is reserved for the current user.
+ * The djb2 seed stays unchanged; the fork maps it to a stable grey rather than a hue.
  */
 fun colorForPeer(identity: PeerIdentity, palette: BitchatPalette): Color {
     var hash = 5381UL
@@ -43,16 +41,11 @@ fun colorForPeer(identity: PeerIdentity, palette: BitchatPalette): Color {
         hash = ((hash shl 5) + hash) + byte.toUByte().toULong()
     }
 
-    var hue = (hash % 360UL).toDouble() / 360.0
-    val orange = 30.0 / 360.0
-    if (abs(hue - orange) < 0.05) {
-        hue = (hue + 0.12) % 1.0
-    }
-
-    val style = palette.peerColors
-    return Color.hsv(
-        hue = (hue * 360).toFloat(),
-        saturation = style.saturation,
-        value = style.value
-    )
+    // Same stable seed as upstream, mapped to readable neutral ink per peer.
+    val t = ((hash shr 17) and 1023UL).toFloat() / 1023f
+    val dark = palette.peerColors.value > 0.5f
+    val high = if (dark) 0.88f else 0.42f
+    val low = if (dark) 0.45f else 0.06f
+    val grey = high - (high - low) * t
+    return Color(red = grey, green = grey, blue = grey)
 }
