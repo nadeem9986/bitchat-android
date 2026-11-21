@@ -1,5 +1,7 @@
 package com.bitchat.android.ui
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -603,7 +605,7 @@ private fun SpamVerdict.debugLabel(): String = when (this) {
         val (overrideProgress, _) = when (val st = message.deliveryStatus) {
             is com.bitchat.android.model.DeliveryStatus.PartiallyDelivered -> {
                 if (st.total > 0 && st.reached < st.total) {
-                    (st.reached.toFloat() / st.total.toFloat()) to Color(0xFF1E88E5) // blue while sending
+                    (st.reached.toFloat() / st.total.toFloat()) to MonochromeStatusInk // blue while sending
                 } else null to null
             }
             else -> null to null
