@@ -1,5 +1,7 @@
 package com.bitchat.android.ui.media
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.foundation.background
@@ -51,7 +53,7 @@ fun AudioMessageItem(
     val (overrideProgress, overrideColor) = when (val st = message.deliveryStatus) {
         is com.bitchat.android.model.DeliveryStatus.PartiallyDelivered -> {
             if (st.total > 0 && st.reached < st.total) {
-                (st.reached.toFloat() / st.total.toFloat()) to Color(0xFF1E88E5) // blue while sending
+                (st.reached.toFloat() / st.total.toFloat()) to MonochromeStatusInk // blue while sending
             } else null to null
         }
         else -> null to null
@@ -73,7 +75,7 @@ fun AudioMessageItem(
                 if (isLive) {
                     androidx.compose.material3.Text(
                         text = "LIVE",
-                        color = Color(0xFFFFB300),
+                        color = MonochromeStatusInk,
                         style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
                         modifier = Modifier.padding(end = 8.dp)
                     )
@@ -138,7 +140,7 @@ fun AudioMessageItem(
             if (isLive) {
                 androidx.compose.material3.Text(
                     text = "LIVE",
-                    color = Color(0xFFFFB300),
+                    color = MonochromeStatusInk,
                     style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
                     modifier = Modifier.padding(end = 8.dp)
                 )
