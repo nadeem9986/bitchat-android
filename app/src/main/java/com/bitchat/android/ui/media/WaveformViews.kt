@@ -1,5 +1,7 @@
 package com.bitchat.android.ui.media
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
@@ -42,7 +44,7 @@ fun ScrollingWaveformRecorder(
             kotlinx.coroutines.delay(80)
         }
     }
-    WaveformCanvas(modifier = modifier, samples = samples, fillProgress = 1f, baseColor = Color(0xFF444444), fillColor = Color(0xFF00FF7F))
+    WaveformCanvas(modifier = modifier, samples = samples, fillProgress = 1f, baseColor = Color(0xFF444444), fillColor = MonochromeStatusInk)
 }
 
 @Composable
@@ -81,7 +83,7 @@ fun WaveformPreview(
         fillProgress = if (stateSamples.isEmpty()) 0f else progress,
         baseColor = baseColor,
         fillColor = when {
-            sendProgress != null -> Color(0xFF1E88E5) // blue while sending
+            sendProgress != null -> MonochromeStatusInk // blue while sending
             else -> playedColor
         },
         onSeek = onSeek
