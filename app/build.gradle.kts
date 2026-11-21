@@ -69,6 +69,7 @@ android {
 
     buildTypes {
         debug {
+            applicationIdSuffix = ".monochrome.test"
             if (composerUiTests) applicationIdSuffix = ".composerTest"
             ndk {
                 // Include x86_64 for emulator support during development
