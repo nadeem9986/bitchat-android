@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 data class BitchatPalette(
     // MARK: - Form controls
     /**
-     * Resting border for text inputs. Deliberately a neutral grey rather than the green-tinted
+     * Resting border for text inputs. Deliberately a neutral grey rather than the upstream tinted
      * Material outline: the composer is the one surface the user stares at while typing.
      */
     val inputOutline: Color,
@@ -23,7 +23,7 @@ data class BitchatPalette(
     val inputOutlineFocused: Color,
     /**
      * Fill for text inputs. Near-black / near-white and completely untinted, for the same reason
-     * as [inputOutline] — and because the composer sits on top of a green-tinted scrim, so any
+     * as [inputOutline] — and because the composer sits on top of a upstream tinted scrim, so any
      * tint of its own compounds into something muddy.
      */
     val inputSurface: Color,
@@ -49,26 +49,26 @@ data class BitchatPalette(
 )
 
 val DarkBitchatPalette = BitchatPalette(
-    inputOutline = Color(0xFF333635),
-    inputOutlineFocused = Color(0xFF5A605D),
+    inputOutline = Color(0xFF353535),
+    inputOutlineFocused = Color(0xFF5F5F5F),
     inputSurface = Color(0xFF0B0B0B),
     inputSurfaceFocused = Color(0xFF151515),
     inputButton = Color(0xFF1E1E1E),
-    textTertiary = Color(0xFF6B776B),
-    accentOrange = Color(0xFFFF9F0A),
-    accentPurple = Color(0xFFBF5AF2),
+    textTertiary = Color(0xFF747474),
+    accentOrange = Color(0xFFF2F2F2),
+    accentPurple = Color(0xFF7A7A7A),
     peerColors = PeerColorStyle.Dark,
 )
 
 val LightBitchatPalette = BitchatPalette(
-    inputOutline = Color(0xFFCFD3D1),
-    inputOutlineFocused = Color(0xFF8E9490),
+    inputOutline = Color(0xFFD2D2D2),
+    inputOutlineFocused = Color(0xFF929292),
     inputSurface = Color(0xFFFAFAFA),
     inputSurfaceFocused = Color(0xFFF2F2F2),
     inputButton = Color(0xFFE8E8E8),
-    textTertiary = Color(0xFF757F75),
-    accentOrange = Color(0xFFFF9500),
-    accentPurple = Color(0xFFAF52DE),
+    textTertiary = Color(0xFF7C7C7C),
+    accentOrange = Color(0xFF141414),
+    accentPurple = Color(0xFF707070),
     peerColors = PeerColorStyle.Light,
 )
 
@@ -88,3 +88,6 @@ object BitchatMotion {
     /** Sheet-level fades and scroll-driven top bars. */
     const val EMPHASIZED_MS = 240
 }
+
+/** Neutral status ink with usable contrast on both black and white backgrounds. */
+val MonochromeStatusInk = Color(0xFF767676)
