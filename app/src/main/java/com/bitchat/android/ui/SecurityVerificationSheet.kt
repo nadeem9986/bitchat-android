@@ -1,5 +1,7 @@
 package com.bitchat.android.ui
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Verified
@@ -193,10 +195,10 @@ private fun buildStatusInfo(
         else -> Icons.Outlined.NoEncryption
     }
     val tint = when {
-        isVerified -> Color(0xFF32D74B)
+        isVerified -> MonochromeStatusInk
         sessionState == "failed" -> Color(0xFFFF3B30)
         sessionState == "handshaking" -> Color(0xFFFF9500)
-        sessionState == "established" -> Color(0xFF32D74B)
+        sessionState == "established" -> MonochromeStatusInk
         else -> accent.copy(alpha = 0.6f)
     }
     return SecurityStatusInfo(text, icon, tint)
@@ -273,9 +275,9 @@ private fun SecurityVerificationActions(
     if (isVerified) {
         VerificationStatusRow(
             icon = Icons.Filled.Verified,
-            iconTint = Color(0xFF32D74B),
+            iconTint = MonochromeStatusInk,
             text = stringResource(R.string.fingerprint_verified_label),
-            textTint = Color(0xFF32D74B)
+            textTint = MonochromeStatusInk
         )
         Text(
             text = stringResource(R.string.fingerprint_verified_message),
@@ -320,7 +322,7 @@ private fun SecurityVerificationActions(
             Button(
                 onClick = { onVerify(fingerprint) },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF34C759),
+                    containerColor = MonochromeStatusInk,
                     contentColor = Color.White
                 ),
                 modifier = Modifier.fillMaxWidth()
