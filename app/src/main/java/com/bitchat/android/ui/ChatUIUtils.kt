@@ -1,5 +1,7 @@
 package com.bitchat.android.ui
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -53,9 +55,9 @@ internal val MENTION_TOKEN_REGEX = Regex("@([\\p{L}0-9_]+(?:#[a-fA-F0-9]{4})?)")
  */
 fun getRSSIColor(rssi: Int): Color {
     return when {
-        rssi >= -50 -> Color(0xFF00FF00) // Bright green
-        rssi >= -60 -> Color(0xFF80FF00) // Green-yellow
-        rssi >= -70 -> Color(0xFFFFFF00) // Yellow
+        rssi >= -50 -> MonochromeStatusInk // Bright green
+        rssi >= -60 -> MonochromeStatusInk // Green-yellow
+        rssi >= -70 -> MonochromeStatusInk // Yellow
         rssi >= -80 -> Color(0xFFFF8000) // Orange
         else -> Color(0xFFFF4444) // Red
     }
