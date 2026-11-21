@@ -1,5 +1,7 @@
 package com.bitchat.android.ui
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import android.Manifest
 import android.view.HapticFeedbackConstants
 import androidx.compose.foundation.gestures.awaitEachGesture
@@ -147,7 +149,7 @@ fun VoiceRecordButton(
         isActive = isRecording || isCapturing || courtesyActive,
         isPressed = isCapturing,
         activeColor = if (courtesyActive && !isRecording && !isCapturing) {
-            androidx.compose.ui.graphics.Color(0xFFFFB300)
+            MonochromeStatusInk
         } else androidx.compose.ui.graphics.Color.Unspecified,
         modifier = modifier
             .onGloballyPositioned { buttonCoords = it }
