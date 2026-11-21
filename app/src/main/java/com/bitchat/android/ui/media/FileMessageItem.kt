@@ -1,5 +1,7 @@
 package com.bitchat.android.ui.media
 
+import com.bitchat.android.ui.theme.MonochromeStatusInk
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.foundation.clickable
@@ -119,13 +121,13 @@ fun FileMessageItem(
 @Composable
 private fun FileTypeBadge(mimeType: String) {
     val (text, color) = when {
-        mimeType.startsWith("application/pdf") -> "PDF" to Color(0xFFDC2626)
-        mimeType.startsWith("text/") -> "TXT" to Color(0xFF059669)
-        mimeType.startsWith("image/") -> "IMG" to Color(0xFF7C3AED)
-        mimeType.startsWith("audio/") -> "AUD" to Color(0xFFEA580C)
-        mimeType.startsWith("video/") -> "VID" to Color(0xFF2563EB)
-        mimeType.contains("document") -> "DOC" to Color(0xFF1D4ED8)
-        mimeType.contains("zip") || mimeType.contains("rar") -> "ZIP" to Color(0xFF7C2D12)
+        mimeType.startsWith("application/pdf") -> "PDF" to MonochromeStatusInk
+        mimeType.startsWith("text/") -> "TXT" to MonochromeStatusInk
+        mimeType.startsWith("image/") -> "IMG" to MonochromeStatusInk
+        mimeType.startsWith("audio/") -> "AUD" to MonochromeStatusInk
+        mimeType.startsWith("video/") -> "VID" to MonochromeStatusInk
+        mimeType.contains("document") -> "DOC" to MonochromeStatusInk
+        mimeType.contains("zip") || mimeType.contains("rar") -> "ZIP" to MonochromeStatusInk
         else -> "FILE" to MaterialTheme.colorScheme.onSurfaceVariant
     }
 
@@ -143,15 +145,15 @@ private fun FileTypeBadge(mimeType: String) {
 private fun getFileIconColor(fileName: String): Color {
     val extension = fileName.substringAfterLast(".", "").lowercase()
     return when (extension) {
-        "pdf" -> Color(0xFFDC2626) // Red
-        "doc", "docx" -> Color(0xFF1D4ED8) // Blue
-        "xls", "xlsx" -> Color(0xFF059669) // Green
-        "ppt", "pptx" -> Color(0xFFEA580C) // Orange
-        "txt", "json", "xml" -> Color(0xFF7C3AED) // Purple
-        "jpg", "png", "gif", "webp" -> Color(0xFF2563EB) // Blue
-        "mp3", "wav", "m4a" -> Color(0xFFEA580C) // Orange
-        "mp4", "avi", "mov" -> Color(0xFFDC2626) // Red
-        "zip", "rar", "7z" -> Color(0xFF7C2D12) // Brown
-        else -> Color(0xFF6B7280) // Gray
+        "pdf" -> MonochromeStatusInk // Red
+        "doc", "docx" -> MonochromeStatusInk // Blue
+        "xls", "xlsx" -> MonochromeStatusInk // Green
+        "ppt", "pptx" -> MonochromeStatusInk // Orange
+        "txt", "json", "xml" -> MonochromeStatusInk // Purple
+        "jpg", "png", "gif", "webp" -> MonochromeStatusInk // Blue
+        "mp3", "wav", "m4a" -> MonochromeStatusInk // Orange
+        "mp4", "avi", "mov" -> MonochromeStatusInk // Red
+        "zip", "rar", "7z" -> MonochromeStatusInk // Brown
+        else -> MonochromeStatusInk // Gray
     }
 }
