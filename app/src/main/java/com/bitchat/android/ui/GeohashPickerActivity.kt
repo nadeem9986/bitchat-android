@@ -195,11 +195,11 @@ class GeohashPickerActivity : OrientationAwareActivity() {
                     if (dark) {
                         GlobeColors(
                             accent = colorScheme.primary,
-                            land = Color(0xFF16241B),
+                            land = Color(0xFF202020),
                             coastline = colorScheme.primary.copy(alpha = 0.45f),
                             border = colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
-                            oceanCenter = Color(0xFF0A1410),
-                            oceanEdge = Color(0xFF020604),
+                            oceanCenter = Color(0xFF101010),
+                            oceanEdge = Color(0xFF040404),
                             atmosphere = colorScheme.primary,
                             graticule = colorScheme.onSurface.copy(alpha = 0.055f),
                             grid = colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
@@ -210,11 +210,11 @@ class GeohashPickerActivity : OrientationAwareActivity() {
                     } else {
                         GlobeColors(
                             accent = colorScheme.primary,
-                            land = Color(0xFFBCD2C0),
+                            land = Color(0xFFCBCBCB),
                             coastline = colorScheme.primary.copy(alpha = 0.5f),
                             border = colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
-                            oceanCenter = Color(0xFFEAF2EC),
-                            oceanEdge = Color(0xFFD4E2D7),
+                            oceanCenter = Color(0xFFF0F0F0),
+                            oceanEdge = Color(0xFFDEDEDE),
                             atmosphere = colorScheme.primary,
                             graticule = colorScheme.onSurface.copy(alpha = 0.08f),
                             grid = colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
